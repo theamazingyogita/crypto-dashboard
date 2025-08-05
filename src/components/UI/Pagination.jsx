@@ -1,23 +1,31 @@
-import React from 'react'
-
 const Pagination = ({ page, setPage }) => {
-    return (
-        <div className='flex justify-center gap-4 mt-6'>
-            <button onClick={setPage((p) => Math.max(p - 1, 1))}
-                disabled={page === 1}
-                className='px-4 py-2 bg-gray-800 rounded disabled:opacity-50'
-            >
-                Prev
+  const totalPages = 30; // or dynamic from API
 
-            </button>
-            <button onClick={setPage((p) => p + 1)}
-                disabled={page === 1}
-                className='px-4 py-2 bg-gray-800 rounded'
-            >
-                Next
-            </button>
-        </div>
-    )
-}
+  const handlePageChange = (newPage) => {
+    if (newPage > 0 && newPage <= totalPages) {
+      setPage(newPage); // ✅ State change triggered by event
+    }
+  };
 
-export default Pagination
+  return (
+    <div className="flex justify-center gap-2 mt-4">
+      <button
+        onClick={() => handlePageChange(page - 1)}
+        className="px-3 py-1 bg-pink-500 rounded disabled:opacity-50"
+        disabled={page === 1}
+      >
+        Prev
+      </button>
+      <span>{page}</span>
+      <button
+        onClick={() => handlePageChange(page + 1)}
+        className="px-3 py-1 bg-pink-500 rounded disabled:opacity-50"
+        disabled={page === totalPages}
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
+export default Pagination;
