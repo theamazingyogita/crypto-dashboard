@@ -1,6 +1,7 @@
 import { motion as Motion } from "framer-motion";
 import { useState } from "react";
 import CryptoTable from "../components/Table/CryptoTable"; // <-- your new table component
+import MenuBar from "../components/UI/MenuBar";
 import Pagination from "../components/UI/Pagination";
 import { useFetchCoins } from "../hooks/useFetchCoins";
 
@@ -13,7 +14,8 @@ export default function Dashboard() {
       {/* Background Blur Effects */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-pink-500/30 blur-[150px]"></div>
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-fuchsia-500/20 blur-[150px]"></div>
-
+      <MenuBar/>
+  
       {/* Heading */}
       <Motion.h1
         className="text-start text-2xl font-medium mb-8 relative z-10"

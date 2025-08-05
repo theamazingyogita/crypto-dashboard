@@ -8,7 +8,7 @@ const Pagination = ({ page, setPage }) => {
   };
 
   return (
-    <div className="flex justify-center gap-2 mt-4">
+    <div className="flex justify-center gap-2 mt-4 align-center">
       <button
         onClick={() => handlePageChange(page - 1)}
         className="px-3 py-1 bg-pink-500 rounded disabled:opacity-50"
@@ -16,7 +16,7 @@ const Pagination = ({ page, setPage }) => {
       >
         Prev
       </button>
-      <span>{page}</span>
+      <span className="justify-center">{page}</span>
       <button
         onClick={() => handlePageChange(page + 1)}
         className="px-3 py-1 bg-pink-500 rounded disabled:opacity-50"
