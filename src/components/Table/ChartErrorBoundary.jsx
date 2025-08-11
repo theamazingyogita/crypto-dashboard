@@ -21,3 +21,5 @@ class ChartErrorBoundary extends React.Component {
 }
 
 export default ChartErrorBoundary;
+
+

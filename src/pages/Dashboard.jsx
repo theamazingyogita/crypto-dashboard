@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CryptoTable from "../components/Table/CryptoTable"; // <-- your new table component
+import CryptoOverviewCard from "../components/UI/CryptoOverviewCard";
 import MenuBar from "../components/UI/MenuBar";
 import Pagination from "../components/UI/Pagination";
 import { useFetchCoins } from "../hooks/useFetchCoins";
@@ -9,9 +10,9 @@ export default function Dashboard() {
   const { coins, loading } = useFetchCoins(page);
 
   return (
-    <div className="min-h-screen bg-black text-white p-6 relative m-0 mx-0 p-0">
+    <div className="min-h-screen bg-black text-whiterelative m-0 mx-0 p-0">
       {/* Background Blur Effects */}
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-pink-500/30 blur-[150px]"></div>
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-pink-500/60 blur-[150px]"></div>
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-fuchsia-500/20 blur-[150px]"></div>
   
       {/* Heading */}
@@ -22,6 +23,8 @@ export default function Dashboard() {
       <div className="overflow-x-auto relative z-10 my-10 mx-10">
         <table className="w-full border-collapse">
           <tbody>
+            <div className="font-mono text-3xl text-white py-10">Cryptocurrency Prices by Market Cap</div>
+            <CryptoOverviewCard/>
             <CryptoTable coins={coins} loading={loading} page={page} />
           </tbody>
         </table>
